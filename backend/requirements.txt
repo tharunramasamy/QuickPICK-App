@@ -1,6 +1,7 @@
 fastapi
-uvicorn
-pyodbc
+uvicorn[standard]
 python-dotenv
-pyjwt
+pyodbc
 azure-messaging-webpubsubservice
+python-jose
+passlib[bcrypt]
