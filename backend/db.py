@@ -1,15 +1,15 @@
-import pyodbc
 import os
+import pymssql
 from dotenv import load_dotenv
 
 load_dotenv()
 
 def get_connection():
-    conn = pyodbc.connect(
-        "DRIVER={ODBC Driver 17 for SQL Server};"
-        f"SERVER={os.getenv('DB_SERVER')};"
-        f"DATABASE={os.getenv('DB_NAME')};"
-        f"UID={os.getenv('DB_USER')};"
-        f"PWD={os.getenv('DB_PASSWORD')}"
+    return pymssql.connect(
+        server=os.getenv("DB_SERVER"),
+        user=os.getenv("DB_USER"),
+        password=os.getenv("DB_PASSWORD"),
+        database=os.getenv("DB_NAME"),
+        port=1433,          # Azure SQL default
+        login_timeout=10
     )
-    return conn
