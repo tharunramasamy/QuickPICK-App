@@ -26,11 +26,7 @@ app.add_middleware(
 
 @app.get("/")
 def root():
-    return {
-        "status": "QuickPick API is running 🚀",
-        "docs": "/docs",
-        "health": "OK"
-    }
+    return {"status": "QuickPick API running"}
 
 @app.post("/login")
 def login(data: LoginRequest):
